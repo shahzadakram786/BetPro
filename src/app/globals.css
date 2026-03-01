@@ -28,7 +28,7 @@
 
   /* Pixel-perfect heading defaults */
   h1, h2, h3 {
-    @apply uppercase font-black italic tracking-tighter;
+    @apply uppercase font-black  tracking-tighter;
   }
 }
 

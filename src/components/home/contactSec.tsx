@@ -3,8 +3,8 @@ import { User, Lock, MapPin, Phone, Mail } from 'lucide-react';
 
 const ContactSection = () => {
   return (
-    <section className="bg-black py-24 px-4">
-      <div className="container mx-auto max-w-6xl p-6">
+    <section className="bg-black py-25 md:px-5">
+      <div className="container mx-auto p-6">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-white text-4xl md:text-5xl font-black uppercase tracking-tight mb-4">
@@ -13,10 +13,10 @@ const ContactSection = () => {
           <div className="w-12 h-1 bg-brand-neon mx-auto rounded-full"></div>
         </div>
 
-        <div className="flex  lg:row items-center  gap-20">
+        <div className="flex flex-col  md:flex-row items-center md:px-6 gap-16 ">
           
           {/* LEFT: LOGIN CARD (The "BP" Card) */}
-          <div className="w-full max-w-112.5">
+          <div className="w-full lg:w-[45%]">
             <div className="relative bg-linear-to-b from-brand-blue-top to-brand-blue-bottom rounded-[3rem] p-12 border border-white/10 shadow-2xl overflow-hidden">
               {/* BP Logo Circle */}
               <div className="flex justify-center mb-10">
@@ -83,7 +83,7 @@ const ContactSection = () => {
               <div className="w-14 h-14 bg-[#111] border border-white/5 rounded-2xl flex items-center justify-center group-hover:border-brand-neon/50 transition-colors">
                 <Mail size={24} className="text-brand-neon" />
               </div>
-              <div>
+              <div className='felx flex-wrap'>
                 <p className="text-gray-500 text-[10px] uppercase font-black tracking-widest mb-1">Email</p>
                 <p className="text-white font-bold">developerstop4@gmail.com</p>
               </div>
