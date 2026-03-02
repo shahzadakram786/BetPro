@@ -60,7 +60,7 @@ const GetStarted = () => {
             <div className="space-y-10">
               {steps.map((step, idx) => (
                 <div key={idx} className="flex gap-6">
-                  <div className="w-10 h-10 rounded-full bg-[#83D64D] flex items-center justify-center shrink-0 text-black font-black">
+                  <div className="w-10 h-10 rounded-full bg-[#76DB57] text-white flex items-center justify-center shrink-0 font-black">
                     {step.number}
                   </div>
                   <div className="space-y-2">
@@ -74,7 +74,7 @@ const GetStarted = () => {
         </div>
 
         {/* READY TO START WINNING AREA */}
-        <div className="pt-20 border-t border-white/10 text-center space-y-8">
+        <div className="pt-20 border-t border-t-4 border-white/80 rounded-lg text-center space-y-8">
           <h2 className="text-white text-4xl md:text-5xl font-black tracking-tight">Ready to Start Winning?</h2>
           <p className="text-gray-400 max-w-2xl mx-auto font-medium">
             Join thousands of satisfied customers who trust us as their official Betpro Dealer. Get your account today!
