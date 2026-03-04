@@ -7,6 +7,8 @@ import React from 'react';
 // import BlogSidebar from '@/components/BlogSidebar';
 // import SubPageHero from '@/components/SubPageHero';
 
+export const dynamic = 'force-dynamic';
+
 const BlogPage = () => {
   return (
     <main className="bg-brand-black min-h-screen">
