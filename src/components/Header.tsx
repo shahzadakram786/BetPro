@@ -7,8 +7,9 @@ import {
   Phone, Clock, Facebook, Instagram, Twitter, 
   Youtube, Linkedin, ArrowRight, Menu, X 
 } from 'lucide-react';
+import { siteConfig } from '@/config/site';
 
-// 1. DATA CONFIGURATION (Best Practice: Keep data outside the component)
+// 1. DATA CONFIGURATION
 const NAV_LINKS = [
   { name: 'Home', href: '/' },
   { name: 'Blog', href: '/blog' },
@@ -16,11 +17,11 @@ const NAV_LINKS = [
 ];
 
 const SOCIAL_LINKS = [
-  { Icon: Facebook, href: '#' },
-  { Icon: Instagram, href: '#' },
-  { Icon: Twitter, href: '#' },
-  { Icon: Youtube, href: '#' },
-  { Icon: Linkedin, href: '#' },
+  { Icon: Facebook, href: siteConfig.links.facebook },
+  { Icon: Instagram, href: siteConfig.links.instagram },
+  { Icon: Twitter, href: siteConfig.links.twitter },
+  { Icon: Youtube, href: siteConfig.links.youtube },
+  { Icon: Linkedin, href: siteConfig.links.linkedin },
 ];
 
 const Header = () => {
@@ -31,8 +32,8 @@ const Header = () => {
     document.body.style.overflow = isMenuOpen ? 'hidden' : 'unset';
   }, [isMenuOpen]);
 
-  const WHATSAPP_NUMBER = "923222208585";
-  const WA_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
+  // Cleaned up: No more local WA_LINK constants here! 
+  // We use siteConfig.contact.whatsappUrl directly.
 
   return (
     <header className="w-full font-sans sticky top-0 z-50">
@@ -40,9 +41,14 @@ const Header = () => {
       <div className="bg-[#0A0A0A] border-b border-white/5 py-3 hidden md:block">
         <div className="container mx-auto px-4 flex justify-between items-center text-[13px] text-gray-400">
           <div className="flex items-center gap-6">
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-brand-neon transition-colors">
+            <a 
+              href={siteConfig.contact.whatsapp} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex items-center gap-2 hover:text-brand-neon transition-colors"
+            >
               <Phone size={14} className="text-brand-neon" />
-              <span className='text-sm'>+34 664 11 25 57</span>
+              <span className='text-sm'>{siteConfig.contact.phone}</span>
             </a>
             <div className="flex items-center gap-2 border-l border-gray-700 pl-6 text-gray-500">
               <Clock size={14} className="text-brand-neon" />
@@ -52,7 +58,13 @@ const Header = () => {
           
           <div className="flex items-center gap-3">
             {SOCIAL_LINKS.map(({ Icon, href }, idx) => (
-              <a key={idx} href={href} className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand-neon hover:text-black transition-all">
+              <a 
+                key={idx} 
+                href={href} 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center hover:bg-brand-neon hover:text-black transition-all"
+              >
                 <Icon size={18} />
               </a>
             ))}
@@ -70,7 +82,7 @@ const Header = () => {
             </h1>
           </Link>
 
-          {/* Desktop Nav (Mapped) */}
+          {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-10">
             <div className="flex items-center gap-8">
               {NAV_LINKS.map((link) => (
@@ -86,22 +98,37 @@ const Header = () => {
               ))}
             </div>
             
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" 
-               className="bg-[#EAEAEA] text-black px-8 py-3 rounded-full font-black text-xs uppercase flex items-center gap-2 hover:bg-white transition-all shadow-lg hover:scale-105 active:scale-95">
+            <a 
+              href={siteConfig.contact.whatsapp} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="bg-[#EAEAEA] text-black px-8 py-3 rounded-full font-black text-xs uppercase flex items-center gap-2 hover:bg-white transition-all shadow-lg hover:scale-105 active:scale-95"
+            >
               <ArrowRight size={16} /> CONTACT US
             </a>
           </div>
 
-          <button className="lg:hidden text-white p-2 z-50 transition-transform active:scale-90" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button 
+            className="lg:hidden text-white p-2 z-50 transition-transform active:scale-90" 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
             {isMenuOpen ? <X size={32} className="text-brand-neon" /> : <Menu size={32} />}
           </button>
         </div>
       </nav>
 
-      {/* FULL SCREEN RIGHT DRAWER */}
-      <div className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[45] transition-opacity duration-300 lg:hidden ${isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"}`} onClick={() => setIsMenuOpen(false)} />
+      {/* MOBILE DRAWER OVERLAY */}
+      <div 
+        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[45] transition-opacity duration-300 lg:hidden ${
+          isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`} 
+        onClick={() => setIsMenuOpen(false)} 
+      />
 
-      <div className={`fixed top-0 right-0 h-full w-full sm:w-[400px] bg-brand-dark z-[48] shadow-2xl transform transition-transform duration-500 ease-in-out lg:hidden flex flex-col ${isMenuOpen ? "translate-x-0" : "translate-x-full"}`}>
+      {/* MOBILE DRAWER */}
+      <div className={`fixed top-0 right-0 h-full w-full sm:w-[400px] bg-brand-dark z-[48] shadow-2xl transform transition-transform duration-500 ease-in-out lg:hidden flex flex-col ${
+        isMenuOpen ? "translate-x-0" : "translate-x-full"
+      }`}>
         <div className="flex flex-col h-full p-8 pt-24">
           <div className="flex flex-col gap-8">
             {NAV_LINKS.map((link) => (
@@ -119,14 +146,22 @@ const Header = () => {
           </div>
 
           <div className="mt-12 pt-12 border-t border-white/10">
-            <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="w-full bg-brand-neon text-black p-5 rounded-2xl font-black text-center uppercase tracking-widest flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(57,255,20,0.2)]" onClick={() => setIsMenuOpen(false)}>
+            <a 
+              href={siteConfig.contact.whatsapp} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-full bg-brand-neon text-black p-5 rounded-2xl font-black text-center uppercase tracking-widest flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(57,255,20,0.2)]" 
+              onClick={() => setIsMenuOpen(false)}
+            >
               <Phone size={20} fill="black" /> WhatsApp Now
             </a>
           </div>
 
           <div className="mt-auto flex justify-center gap-6 pb-10">
-            {SOCIAL_LINKS.slice(0,3).map(({ Icon }, idx) => (
-              <Icon key={idx} size={24} className="text-gray-400 hover:text-brand-neon transition-colors cursor-pointer" />
+            {SOCIAL_LINKS.slice(0, 5).map(({ Icon, href }, idx) => (
+              <a key={idx} href={href} target="_blank" rel="noopener noreferrer">
+                <Icon size={24} className="text-gray-400 hover:text-brand-neon transition-colors cursor-pointer" />
+              </a>
             ))}
           </div>
         </div>
