@@ -29,7 +29,7 @@ const BlogSidebar = () => {
   ];
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-10 sticky top-38">
       {/* SEARCH WIDGET */}
       <div className="bg-[#0F1421] p-8 rounded-[2rem] border border-white/5">
         <h4 className="text-white font-black uppercase text-sm tracking-widest mb-6">Search</h4>

@@ -1,17 +1,21 @@
 import React from 'react';
 import Link from 'next/link';
 import { MoveRight } from 'lucide-react';
-import { sanityFetch } from '@/sanity/lib/live'; // Helper created by Sanity init
-import { POSTS_QUERY } from '@/sanity/lib/queries';
 
-const BlogCard = async () => {
-  // Fetch real posts from Sanity
-  const { data: posts } = await sanityFetch({ query: POSTS_QUERY,
-  // revalidate: 0,
-   });
+// REMOVED: sanityFetch and POSTS_QUERY imports are no longer needed here
 
+interface BlogCardProps {
+  posts: any[];
+}
+
+const BlogCard = ({ posts }: BlogCardProps) => {
+  // 1. NO FETCHING HERE: Just check if posts exist
   if (!posts || posts.length === 0) {
-    return <div className="text-white p-10">No blog posts found. Create one in /admin!</div>;
+    return (
+      <div className="text-white p-20 bg-[#0F1421] rounded-[2.5rem] border border-white/5 text-center">
+        <p className="text-gray-400 italic">No blog posts found matching your criteria.</p>
+      </div>
+    );
   }
 
   return (
