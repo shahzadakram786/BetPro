@@ -6,7 +6,9 @@ import { POSTS_QUERY } from '@/sanity/lib/queries';
 
 const BlogCard = async () => {
   // Fetch real posts from Sanity
-  const { data: posts } = await sanityFetch({ query: POSTS_QUERY });
+  const { data: posts } = await sanityFetch({ query: POSTS_QUERY,
+  // revalidate: 0,
+   });
 
   if (!posts || posts.length === 0) {
     return <div className="text-white p-10">No blog posts found. Create one in /admin!</div>;
