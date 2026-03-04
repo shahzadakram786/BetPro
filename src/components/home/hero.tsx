@@ -1,5 +1,6 @@
 import React from 'react';
 import { Phone, CheckCircle2, AlertTriangle } from 'lucide-react';
+import { CtaButton } from '../ui/CtaButton';
 
 const Hero = () => {
   return (
@@ -49,11 +50,9 @@ const Hero = () => {
         </div>
 
         {/* Glowing CTA Button */}
-        <button className="btn-contact group">
-          <Phone size={18} fill="black" className="group-hover:animate-pulse" />
-          CONTACT US
-        </button>
-      </div>
+<div className="flex gap-4">
+  <CtaButton label="Contact us" /> 
+</div>      </div>
 
       {/* 5. BOTTOM TRANSITION GRADIENT */}
       <div className="absolute bottom-0 w-full h-32 bg-linear-to-t from-brand-black to-transparent z-3"></div>

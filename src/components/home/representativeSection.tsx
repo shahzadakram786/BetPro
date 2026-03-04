@@ -1,11 +1,24 @@
 import React from 'react';
 import { Map, User, Phone } from 'lucide-react';
+import { siteConfig } from '@/config/site';
 
-const RepresentativeSection = () => {
-  // Best Practice: Use the specific representative's number if different, 
-  // otherwise use the main business number.
-  const REPRESENTATIVE_WA = "https://wa.me/923222208585";
 
+
+// Define the interface for props
+interface RepresentativeProps {
+  name?: string;
+  whatsapp?: string;
+  role?: string;
+}
+
+const RepresentativeSection = ({ 
+  name = siteConfig.representatives.salman.name, 
+  whatsapp = siteConfig.representatives.salman.whatsapp,
+  role = siteConfig.representatives.salman.role 
+}: RepresentativeProps) => {
+
+  // Dynamic WhatsApp Link Generation
+  const whatsappUrl = `https://wa.me/${whatsapp.replace(/\s+/g, '')}`;
   return (
     <section className="bg-brand-dark py-25 px-4 overflow-hidden">
       <div className="container mx-auto">
@@ -40,17 +53,15 @@ const RepresentativeSection = () => {
                 </div>
                 
                 <h3 className="text-white text-3xl font-black tracking-tight mb-1">
-                  Salman Shaikh
-                </h3>
+{name}                </h3>
                 <p className="text-brand-neon text-[10px] font-bold uppercase tracking-[0.3em] opacity-80">
-                  OFFICIAL REPRESENTATIVE
-                </p>
+{role}                </p>
               </div>
 
               {/* Action Area - Fully Functional Link */}
               <div className="bg-brand-black/50 p-8">
-                <a 
-                  href={REPRESENTATIVE_WA}
+               <a 
+                  href={whatsappUrl} // Dynamic Link
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full flex items-center justify-center gap-3 bg-brand-neon hover:bg-[#32e612] text-black py-5 rounded-3xl font-black text-sm uppercase transition-all shadow-[0_10px_30px_rgba(57,255,20,0.15)] hover:shadow-brand-neon/40 hover:-translate-y-1 active:scale-95"
