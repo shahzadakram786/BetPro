@@ -1,7 +1,7 @@
 // src/config/site.ts
 export const siteConfig = {
   contact: {
-    phone: "+92 32222 0 8585",
+    phone: "032222 0 8585",
     whatsapp: "https://wa.me/923222208585",
     telegram: "https://t.me/yourusername",
   },
@@ -17,7 +17,7 @@ export const siteConfig = {
   representatives: {
     salman: {
       name: "Salman Shaikh",
-      whatsapp: "923222208585",
+      whatsapp: "34664112557",
       role: "OFFICIAL REPRESENTATIVE"
     },
   }
