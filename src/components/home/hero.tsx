@@ -8,13 +8,13 @@ const Hero = () => {
       
       {/* 1. THE BACKGROUND IMAGE LAYER */}
       <div 
-        className="absolute inset-0 z-0 bg-[url('/bg.png')] bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 z-0 bg-[url('/hero1.png')] bg-cover bg-center bg-no-repeat"
         aria-hidden="true"
       />
 
       {/* 2. THE DARK OVERLAY LAYER (Pixel Perfect Readability) */}
       {/* We use a 70% black overlay so the white text and neon green POP */}
-      <div className="absolute inset-0 z-1 bg-black/10" />
+      <div className="absolute inset-0 z-1 bg-black/70" />
 
      
 
@@ -35,7 +35,7 @@ const Hero = () => {
             BETPRO DEALER
           </span>
           <span className="text-5xl md:text-8xl font-black text-brand-neon tracking-tight drop-shadow-[0_0_15px_rgba(57,255,20,0.3)]">
-            +92 32222 0 8585
+            032222 0 8585
           </span>
         </h1>
 

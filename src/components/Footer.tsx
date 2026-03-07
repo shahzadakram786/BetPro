@@ -33,7 +33,7 @@ const Footer = () => {
                 <Phone size={18} className="text-brand-neon" />
               </div>
               <span className="text-brand-neon font-bold">
-                +34 664 11 25 57
+                034 664 11 25 57
               </span>
             </a>
           </div>
@@ -42,9 +42,9 @@ const Footer = () => {
           <div className="space-y-6">
             <h3 className="text-lg font-bold">Quick Links</h3>
             <ul className="space-y-4">
-              <li><a href="#" className="footer-link">Home</a></li>
-              <li><a href="#" className="footer-link">Blog</a></li>
-              <li><a href="#" className="footer-link">Betpro Dealer</a></li>
+              <li><a href="/" className="footer-link">Home</a></li>
+              <li><a href="/blog" className="footer-link">Blog</a></li>
+              <li><a href="/bettingdealer" className="footer-link">Betpro Dealer</a></li>
             </ul>
           </div>
 
@@ -78,7 +78,7 @@ const Footer = () => {
             className="flex items-center gap-2 hover:text-brand-neon transition-colors group"
           >
             <Phone size={14} className="text-brand-neon group-hover:animate-pulse" />
-            <span>+92 32222 0 8585</span>
+            <span>032222 0 8585</span>
           </a>
         </div>
       </div>
