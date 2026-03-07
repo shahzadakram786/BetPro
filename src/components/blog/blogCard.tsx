@@ -33,7 +33,7 @@ const BlogCard = ({ posts }: BlogCardProps) => {
           </div>
 
           {/* TITLE */}
-          <div className="px-6 py-4">
+          <div className="px-2 md:px-6 py-4">
             <Link href={`/blog/${post.slug}`}>
               <h2 className="text-white text-3xl font-black tracking-tight hover:text-[#83D64D] transition-colors">
                 {post.title}
@@ -42,18 +42,18 @@ const BlogCard = ({ posts }: BlogCardProps) => {
           </div>
 
           {/* IMAGE */}
-          <div className="px-6">
+          <div className="px-2 md:px-6">
             <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/5">
               <img 
                 src={post.image || "/placeholder.png"} 
                 alt={post.title} 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full md:object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>
 
           {/* EXCERPT & BUTTON */}
-          <div className="p-8 pt-6 space-y-6">
+          <div className="py-8 px-2 md:py-8 pt-6 space-y-6">
             <p className="text-gray-400 text-sm leading-relaxed font-medium line-clamp-3">
               {post.excerpt}
             </p>
