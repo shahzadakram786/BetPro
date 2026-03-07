@@ -21,11 +21,11 @@ const BlogSidebar = () => {
   // Best Practice: In a real app, you'd fetch these from Sanity.
   // For now, we use dynamic objects to enable linking.
   const recentPosts = [
-    { title: "Bpexch.Live", slug: "bpexch.live" },
+    { title: "Bpexch.Live", slug: "bpexch-live" },
     { title: "BetPro Dealer Pakistan", slug: "betpro-dealer-pakistan" },
-    { title: "Betpro AED (Dirham) Account Available", slug: "betpro-aed-account" },
-    { title: "Betpro Account Limited? Issues in Pakistan", slug: "betpro-account-limited" },
-    { title: "Withdraw Under Review Betpro App", slug: "withdraw-under-review" }
+    { title: "Betpro AED (Dirham) Account Available", slug: "betpro-bpexch-aed-dirham-account-available" },
+    { title: "Betpro Account Limited? Issues in Pakistan", slug: "how-to-securely-manage-your-bpexch-id-in-2026" },
+    // { title: "Withdraw Under Review Betpro App", slug: "withdraw-under-review" }
   ];
 
   return (
