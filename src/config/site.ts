@@ -1,7 +1,7 @@
 // src/config/site.ts
 export const siteConfig = {
   contact: {
-    phone: "032222 0 8585",
+    phone: "03222208585",
     whatsapp: "https://wa.me/923222208585",
     telegram: "https://t.me/yourusername",
   },

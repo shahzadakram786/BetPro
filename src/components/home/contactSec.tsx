@@ -97,7 +97,7 @@ const ContactSection = ({
                 <p className="text-gray-500 text-[10px] uppercase font-black tracking-widest mb-1">
                   Phone
                 </p>
-                <p className="text-white font-bold">+34 664 11 25 57</p>
+                <p className="text-white font-bold">+34664112557</p>
               </div>
             </div>
 
