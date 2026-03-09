@@ -35,7 +35,7 @@ const Hero = () => {
             BETPRO DEALER
           </span>
           <span className="text-5xl md:text-8xl font-black text-brand-neon tracking-tight drop-shadow-[0_0_15px_rgba(57,255,20,0.3)]">
-            032222 0 8585
+            03222208585
           </span>
         </h1>
 
