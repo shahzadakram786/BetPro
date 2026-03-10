@@ -28,6 +28,47 @@ export default async function SinglePost({
     return notFound();
   }
 
+
+
+// --- START: SCHEMA MARKUP (JSON-LD) ---
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "image": post.image,
+    "datePublished": post._createdAt,
+    "dateModified": post._updatedAt || post._createdAt,
+    "author": {
+      "@type": "Organization",
+      "name": "Betpro Dealer Pakistan",
+      "url": "https://dealerbetpro.live"
+    },
+    "description": post.excerpt || post.title,
+    "publisher": {
+      "@type": "Organization",
+      "name": "Dealer Betpro",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://dealerbetpro.live/logo.png" // Ensure you have a logo at this path
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://dealerbetpro.live/blog/${slug}`
+    }
+  };
+  // --- END: SCHEMA MARKUP ---
+
+
+
+
+
+
+
+
+
+
+
   return (
     <main className="bg-brand-black min-h-screen">
       <PageHeader title="Blog" parentPage="Blog" parentLink="/blog" currentPage={post.title} />
