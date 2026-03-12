@@ -33,7 +33,7 @@ const Footer = () => {
                 <Phone size={18} className="text-brand-neon" />
               </div>
               <span className="text-brand-neon font-bold">
-                034664112557
+                +34 664 11 25 57
               </span>
             </a>
           </div>
@@ -78,7 +78,7 @@ const Footer = () => {
             className="flex items-center gap-2 hover:text-brand-neon transition-colors group"
           >
             <Phone size={14} className="text-brand-neon group-hover:animate-pulse" />
-            <span>03222208585</span>
+            <span>+34 664 11 25 57</span>
           </a>
         </div>
       </div>
